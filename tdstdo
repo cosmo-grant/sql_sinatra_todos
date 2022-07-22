@@ -1,0 +1,26 @@
+
+[1mFrom:[0m /home/cosmo/projects/launch_school/rb185/sql_sinatra_todos/database_persistence.rb:40 DatabasePersistence#all_lists:
+
+    [1;34m22[0m: [32mdef[0m [1;34mall_lists[0m
+    [1;34m23[0m:   sql_lists = [31m[1;31m"[0m[31mSELECT * FROM lists;[1;31m"[0m[31m[0m
+    [1;34m24[0m:   result_lists = query(sql_lists)
+    [1;34m25[0m: 
+    [1;34m26[0m:   lists = result_lists.map [32mdo[0m |tuple|
+    [1;34m27[0m:     {[35mid[0m: tuple[[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m], [35mname[0m: tuple[[31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m], [35mtodos[0m: []}
+    [1;34m28[0m:   [32mend[0m
+    [1;34m29[0m: 
+    [1;34m30[0m:   sql_todos = [31m[1;31m"[0m[31mSELECT * FROM todos;[1;31m"[0m[31m[0m
+    [1;34m31[0m:   result_todos = query(sql_todos)
+    [1;34m32[0m: 
+    [1;34m33[0m:   result_todos.each [32mdo[0m |tuple|
+    [1;34m34[0m:     todo = {[35mid[0m: tuple[[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m], [35mname[0m: tuple[[31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m], [35mcompleted[0m: tuple[[31m[1;31m"[0m[31mcompleted[1;31m"[0m[31m[0m]}
+    [1;34m35[0m:     list_id = tuple[[31m[1;31m"[0m[31mlist_id[1;31m"[0m[31m[0m]
+    [1;34m36[0m:     list = lists.find { |lst| lst[[33m:id[0m] = list_id }
+    [1;34m37[0m:     list[[33m:todos[0m] << todo
+    [1;34m38[0m:   [32mend[0m
+    [1;34m39[0m: 
+ => [1;34m40[0m:   binding.pry
+    [1;34m41[0m: 
+    [1;34m42[0m:   lists
+    [1;34m43[0m: [32mend[0m
+
